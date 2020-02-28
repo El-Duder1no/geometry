@@ -1,47 +1,54 @@
 #include <iostream>
-#include <string.h>
+#include <math.h>
 using namespace std;
 
-class Circle {
-private:
-    int x, y;
-    float r;
-    string data;
+void GetCoord(int x, int y, int r)
+{
+    cout << "circle(" << x << " " << y << ", " << r << ")" << endl;
+}
 
-public:
-    void SetCoord(int circle_x, int circle_y, float circle_r)
-    {
-        x = circle_x;
-        y = circle_y;
-        r = circle_r;
-    }
+float Perimeter(int r)
+{
+    float perimeter = 2 * 3.14 * r;
+    return perimeter;
+}
 
-    void GetCoord()
-    {
-        cout << "circle(" << x << " " << y << ", " << r << ")" << endl;
-    }
+float Area(int r)
+{
+    float area = 3.14 * r * r;
+    return area;
+}
 
-    float Perimeter()
-    {
-        float perimeter = 2 * 3.14 * r;
-        return perimeter;
-    }
-
-    float Area()
-    {
-        float area = 3.14 * r * r;
-        return area;
-    }
-};
+int Intersection(int x, int y, int r, int x1, int y1, int r1)
+{
+    double d = sqrt(pow(x1 - x, 2) + pow(y1 - y, 2));
+    if (d == 0 && r == r1)
+        return 1;
+    if (r + r1 >= d && r + d >= r1 && r1 + d >= r)
+        return 1;
+    else
+        return 0;
+}
 
 int main()
 {
-    Circle one;
+    int x, y, r, x1, y1, r1;
+    cout << "Enter coordinates of first circle: ";
+    cin >> x >> y >> r;
+    cout << "Enter coordinates of second circle: ";
+    cin >> x1 >> y1 >> r1;
 
-    one.SetCoord(0, 0, 1.5);
-    one.GetCoord();
+    cout << "1. ";
+    GetCoord(x, y, r);
+    cout << "\nArea: " << Area(r) << "\nPerimeter: " << Perimeter(r) << endl;
+    if (Intersection(x, y, r, x1, y1, r1))
+        cout << "intersects:\n\t2. circle" << endl;
 
-    cout << "Area: " << one.Area() << " Perimeter: " << one.Perimeter() << endl;
+    cout << "2. ";
+    GetCoord(x1, y1, r1);
+    cout << "\nArea: " << Area(r1) << "\nPerimeter: " << Perimeter(r1) << endl;
+    if (Intersection(x, y, r, x1, y1, r1))
+        cout << "intersects:\n\t1. circle" << endl;
 
     return 0;
 }
