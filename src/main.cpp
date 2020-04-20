@@ -1,12 +1,9 @@
 #include <iostream>
 #include <math.h>
-#include "circle.h"
-using namespace std;
 
-void GetCoord(Circle one)
-{
-    cout << "circle(" << one.x << " " << one.y << ", " << one.r << ")" << endl;
-}
+#include "circle.h"
+#include "getCoord.h"
+using namespace std;
 
 float Perimeter(Circle one)
 {
