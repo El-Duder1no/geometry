@@ -1,12 +1,7 @@
 #include <iostream>
 #include <math.h>
+#include "circle.h"
 using namespace std;
-
-struct Circle {
-    int x;
-    int y;
-    int r;
-};
 
 void GetCoord(Circle one)
 {
