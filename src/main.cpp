@@ -4,13 +4,8 @@
 #include "circle.h"
 #include "getCoord.h"
 #include "perimeter.h"
+#include "area.h"
 using namespace std;
-
-float Area(Circle one)
-{
-    float area = 3.14 * one.r * one.r;
-    return area;
-}
 
 int Intersection(Circle one, Circle two)
 {
