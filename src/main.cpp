@@ -10,8 +10,7 @@ using namespace std;
 
 int main()
 {
-    Circle one, two;
-    int x, y, r, x1, y1, r1;
+    Circle<int> one, two;
     cout << "Enter coordinates of first circle:  ";
     cin >> one.x >> one.y >> one.r;
     cout << "Enter coordinates of second circle: ";
