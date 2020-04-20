@@ -2,29 +2,36 @@
 #include <math.h>
 using namespace std;
 
-void GetCoord(int x, int y, int r)
+struct Circle {
+    int x;
+    int y;
+    int r;
+};
+
+void GetCoord(Circle one)
 {
-    cout << "circle(" << x << " " << y << ", " << r << ")" << endl;
+    cout << "circle(" << one.x << " " << one.y << ", " << one.r << ")" << endl;
 }
 
-float Perimeter(int r)
+float Perimeter(Circle one)
 {
-    float perimeter = 2 * 3.14 * r;
+    float perimeter = 2 * 3.14 * one.r;
     return perimeter;
 }
 
-float Area(int r)
+float Area(Circle one)
 {
-    float area = 3.14 * r * r;
+    float area = 3.14 * one.r * one.r;
     return area;
 }
 
-int Intersection(int x, int y, int r, int x1, int y1, int r1)
+int Intersection(Circle one, Circle two)
 {
-    double d = sqrt(pow(x1 - x, 2) + pow(y1 - y, 2));
-    if (d == 0 && r == r1)
+    double d = sqrt(pow(two.x - one.x, 2) + pow(two.y - one.y, 2));
+    double buff = static_cast<double>(one.r) + static_cast<double>(two.r);
+    if (d == 0 && one.r == two.r)
         return 1;
-    if (r + r1 >= d && r + d >= r1 && r1 + d >= r)
+    if (buff >= d && (one.r + d) >= two.r && (two.r + d) >= one.r)
         return 1;
     else
         return 0;
@@ -32,23 +39,25 @@ int Intersection(int x, int y, int r, int x1, int y1, int r1)
 
 int main()
 {
+    Circle one, two;
     int x, y, r, x1, y1, r1;
-    cout << "Enter coordinates of first circle: ";
-    cin >> x >> y >> r;
+    cout << "Enter coordinates of first circle:  ";
+    cin >> one.x >> one.y >> one.r;
     cout << "Enter coordinates of second circle: ";
-    cin >> x1 >> y1 >> r1;
+    cin >> two.x >> two.y >> two.r;
 
-    cout << "1. ";
-    GetCoord(x, y, r);
-    cout << "\nArea: " << Area(r) << "\nPerimeter: " << Perimeter(r) << endl;
-    if (Intersection(x, y, r, x1, y1, r1))
-        cout << "intersects:\n\t2. circle" << endl;
+    cout << endl << "1. ";
+    GetCoord(one);
+    cout << "  Area: " << Area(one) << "\n  Perimeter: " << Perimeter(one) << endl;
+    if (Intersection(one, two))
+        cout << "  intersects:\n\t2. circle" << endl;
 
-    cout << "2. ";
-    GetCoord(x1, y1, r1);
-    cout << "\nArea: " << Area(r1) << "\nPerimeter: " << Perimeter(r1) << endl;
-    if (Intersection(x, y, r, x1, y1, r1))
-        cout << "intersects:\n\t1. circle" << endl;
+    cout << endl << "2. ";
+    GetCoord(two);
+    cout << "  Area: " << Area(two) << "\n  Perimeter: " << Perimeter(two) << endl;
+    if (Intersection(one, two))
+        cout << "  intersects:\n\t1. circle" << endl;
 
+	system("PAUSE");
     return 0;
 }
