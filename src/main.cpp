@@ -3,13 +3,8 @@
 
 #include "circle.h"
 #include "getCoord.h"
+#include "perimeter.h"
 using namespace std;
-
-float Perimeter(Circle one)
-{
-    float perimeter = 2 * 3.14 * one.r;
-    return perimeter;
-}
 
 float Area(Circle one)
 {
