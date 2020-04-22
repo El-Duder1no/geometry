@@ -1,11 +1,10 @@
 #ifndef CIRCLE_H
 #define CIRCLE_H
 
-template<typename T>
 struct Circle {
-    T x;
-    T y;
-    T r;
+    int x;
+    int y;
+    int r;
 };
 
 #endif
