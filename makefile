@@ -1,8 +1,8 @@
 all: bin/geometry
 
 bin/geometry: build/main.o build/area.o build/circle.o build/getCoord.o build/intersection.o build/perimeter.o
-	g++ -Wall -Werror build/main.o build/area.o build/circle.o build/getCoord.o build/intersection.o build/perimeter.o -o bin/geometry.exe
-	
+	g++ -Wall -Werror build/main.o build/area.o build/circle.o build/getCoord.o build/intersection.o build/perimeter.o -o bin/geometry
+
 build/main.o: src/main.cpp
 	g++ -Wall -Werror -c src/main.cpp -o build/main.o
 	
@@ -23,4 +23,3 @@ build/perimeter.o: src/perimeter.cpp
 
 clean:
 	rm -rf build/*.o bin/*.exe
-	
