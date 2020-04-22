@@ -1,4 +1,4 @@
-#include "circle.h"
+#include "func.h"
 
 float Perimeter(Circle one)
 {

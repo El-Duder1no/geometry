@@ -1,11 +1,8 @@
 #include <iostream>
 #include <math.h>
 
-#include "circle.h"
-#include "getCoord.h"
-#include "perimeter.h"
-#include "area.h"
-#include "intersection.h"
+#include "func.h"
+
 using namespace std;
 
 int main()
@@ -18,16 +15,20 @@ int main()
 
     cout << endl << "1. ";
     GetCoord(one);
-    cout << "  Area: " << Area(one) << "\n  Perimeter: " << Perimeter(one) << endl;
-    if (Intersection(one, two))
+    cout << "  Area: " << Area(one) << "\n  Perimeter: " << Perimeter(one)
+         << endl;
+    if (Intersection(one, two)) {
         cout << "  intersects:\n\t2. circle" << endl;
-
+    }
+    
     cout << endl << "2. ";
     GetCoord(two);
-    cout << "  Area: " << Area(two) << "\n  Perimeter: " << Perimeter(two) << endl;
-    if (Intersection(one, two))
+    cout << "  Area: " << Area(two) << "\n  Perimeter: " << Perimeter(two)
+         << endl;
+    if (Intersection(one, two)) {
         cout << "  intersects:\n\t1. circle" << endl;
+	} 
 
-	system("PAUSE");
+    system("PAUSE");
     return 0;
 }

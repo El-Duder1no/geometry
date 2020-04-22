@@ -1,4 +1,4 @@
-#include "circle.h"
+#include "func.h"
 #include <iostream>
 
 void GetCoord(Circle one)

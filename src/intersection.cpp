@@ -1,4 +1,4 @@
-#include "circle.h"
+#include "func.h"
 #include <math.h>
 
 int Intersection(Circle one, Circle two)
