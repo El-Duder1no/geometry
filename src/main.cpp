@@ -20,15 +20,14 @@ int main()
     if (Intersection(one, two)) {
         cout << "  intersects:\n\t2. circle" << endl;
     }
-    
+
     cout << endl << "2. ";
     GetCoord(two);
     cout << "  Area: " << Area(two) << "\n  Perimeter: " << Perimeter(two)
          << endl;
     if (Intersection(one, two)) {
         cout << "  intersects:\n\t1. circle" << endl;
-	} 
+    }
 
-    system("PAUSE");
     return 0;
 }
