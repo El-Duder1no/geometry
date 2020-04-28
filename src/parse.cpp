@@ -9,7 +9,7 @@ void enter(
 {
     std::string obj, bracket;
 
-    int lBracket, rBracket, data;
+    int lBracket, rBracket;
     lBracket = text.find("(");
     rBracket = text.find(")");
 
