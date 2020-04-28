@@ -27,7 +27,7 @@ int main()
         cout << "1." << text << endl;
         cout << "  Area: " << Area(one) << "\n  Perimeter: " << Perimeter(one)
              << endl;
-	}
+    }
 
     system("pause");
     return 0;
