@@ -14,7 +14,7 @@ bool structFill(Circle& a, std::string text)
 
     temp = x.c_str();
     if (isdigit(temp[0])) {
-        xF = std::stof(x);
+        xF = stof(x);
         a.x = xF;
     } else {
         std::cout << "X" << std::endl;
@@ -23,7 +23,7 @@ bool structFill(Circle& a, std::string text)
 
     temp = y.c_str();
     if (isdigit(temp[0])) {
-        yF = std::stof(y);
+        yF = stof(y);
         a.y = yF;
     } else {
         std::cout << "Y" << std::endl;
@@ -32,7 +32,7 @@ bool structFill(Circle& a, std::string text)
 
     temp = r.c_str();
     if (isdigit(temp[0])) {
-        rF = std::stof(r);
+        rF = stof(r);
         a.r = rF;
     } else {
         std::cout << "R" << std::endl;
