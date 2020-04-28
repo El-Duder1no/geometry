@@ -21,7 +21,6 @@ int main()
 
     if (!structFill(one, text)) {
         cout << "The input is invalid!" << endl;
-        system("pause");
         return 0;
     } else {
         cout << "1." << text << endl;
@@ -29,6 +28,5 @@ int main()
              << endl;
     }
 
-    system("pause");
     return 0;
 }
