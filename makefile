@@ -1,3 +1,4 @@
+.PHONY: clean
 CC = g++
 CFLAGS = -Wall -Werror
 EXE = bin/geometry
