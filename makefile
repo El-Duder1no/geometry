@@ -5,8 +5,8 @@ EXE = bin/geometry
 
 all: $(EXE)
 
-$(EXE): build/main.o build/area.o build/perimeter.o build/circle.o build/geomCalc.o build/parse.o build/structFill.o 
-	$(CC) $(CFLAGS) build/main.o build/area.o build/perimeter.o build/circle.o build/geomCalc.o build/parse.o build/structFill.o  -o $(EXE)
+$(EXE): build/main.o build/area.o build/perimeter.o build/circle.o build/parse.o build/structFill.o 
+	$(CC) $(CFLAGS) build/main.o build/area.o build/perimeter.o build/circle.o build/parse.o build/structFill.o  -o $(EXE)
 
 build/main.o: src/main.cpp
 	$(CC) $(CFLAGS) -c src/main.cpp -o build/main.o
