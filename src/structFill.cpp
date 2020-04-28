@@ -6,31 +6,31 @@ bool structFill(Circle& a, std::string text)
     float xF, yF, rF;
     const char* temp;
 
-	enter(text, figure, x, y, r);
+    enter(text, figure, x, y, r);
 
-	if (figure != "circle" ) {
-		return false; 
-	}
+    if (figure != "circle") {
+        return false;
+    }
 
-	temp = x.c_str();
+    temp = x.c_str();
     if (isdigit(temp[0])) {
         xF = std::stof(x);
         a.x = xF;
     } else {
         std::cout << "X" << std::endl;
         return false;
-	}
+    }
 
-	temp = y.c_str();
+    temp = y.c_str();
     if (isdigit(temp[0])) {
-		yF = std::stof(y);
+        yF = std::stof(y);
         a.y = yF;
     } else {
         std::cout << "Y" << std::endl;
         return false;
     }
 
-	temp = r.c_str();
+    temp = r.c_str();
     if (isdigit(temp[0])) {
         rF = std::stof(r);
         a.r = rF;
@@ -39,5 +39,5 @@ bool structFill(Circle& a, std::string text)
         return false;
     }
 
-	return true;
+    return true;
 }

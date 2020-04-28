@@ -1,6 +1,11 @@
 #include "parse.h"
 
-void enter(std::string text, std::string &figure, std::string &x, std::string &y, std::string &r)
+void enter(
+        std::string text,
+        std::string& figure,
+        std::string& x,
+        std::string& y,
+        std::string& r)
 {
     std::string obj, bracket;
 
