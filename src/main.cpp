@@ -1,27 +1,34 @@
 #include <iostream>
 #include <math.h>
+#include <string>
 
-#include "func.h"
+#include "circle.h"
+#include "geomCalc.h"
+#include "parse.h"
+#include "structFill.h"
 
+#include <string>
 using namespace std;
 
 int main()
 {
-    Circle one, two;
-    cout << "Enter coordinates of first circle:  ";
-    cin >> one.x >> one.y >> one.r;
-    cout << "Enter coordinates of second circle: ";
-    cin >> two.x >> two.y >> two.r;
+    Circle one;
+    string text;
 
-    cout << endl << "1. ";
-    GetCoord(one);
-    cout << "  Area: " << Area(one) << "\n  Perimeter: " << Perimeter(one)
-         << endl;
+    cout << "Input format: circle(x y, r)" << endl;
+    cout << "Enter the figure coordinates:" << endl << endl;
+    getline(std::cin, text);
 
-    cout << endl << "2. ";
-    GetCoord(two);
-    cout << "  Area: " << Area(two) << "\n  Perimeter: " << Perimeter(two)
-         << endl;
+    if (!structFill(one, text)) {
+        cout << "The input is invalid!" << endl;
+        system("pause");
+        return 0;
+    } else {
+        cout << "1." << text << endl;
+        cout << "  Area: " << Area(one) << "\n  Perimeter: " << Perimeter(one)
+             << endl;
+	}
 
+    system("pause");
     return 0;
 }
