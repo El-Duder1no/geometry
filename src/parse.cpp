@@ -12,7 +12,6 @@ void enter(
     int lBracket, rBracket, data;
     lBracket = text.find("(");
     rBracket = text.find(")");
-    data = rBracket - lBracket - 1;
 
     int firstDelim, secondDelim;
     int xData, yData, rData;
