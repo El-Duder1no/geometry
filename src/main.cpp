@@ -30,7 +30,7 @@ int main()
              << endl;
     }
 
-	cout << endl << "Press any key to exit" << endl;
+    cout << endl << "Press any key to exit" << endl;
     cin.get();
     return 0;
 }
