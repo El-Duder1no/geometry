@@ -1,7 +1,7 @@
-#include "func.h"
+#include "geomCalc.h"
 
 float Area(Circle one)
 {
-    float S = 3.14 * one.r * one.r;
+    float S = PI * one.r * one.r;
     return S;
 }
