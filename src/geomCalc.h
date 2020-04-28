@@ -1,7 +1,7 @@
 #ifndef GEOM_H
 #define GEOM_H
 
-#include "func.h"
+#include "circle.h"
 
 #define PI 3.1415
 
