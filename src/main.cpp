@@ -21,6 +21,9 @@ int main()
 
     if (!structFill(one, text)) {
         cout << "The input is invalid!" << endl;
+
+		cout << endl << "Press any key to exit" << endl;
+        cin.get();
         return 0;
     } else {
         cout << endl << "1." << text << endl;
