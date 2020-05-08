@@ -17,7 +17,6 @@ bool structFill(Circle& a, std::string text)
         xF = stof(x);
         a.x = xF;
     } else {
-        std::cout << "X" << std::endl;
         return false;
     }
 
@@ -26,16 +25,16 @@ bool structFill(Circle& a, std::string text)
         yF = stof(y);
         a.y = yF;
     } else {
-        std::cout << "Y" << std::endl;
         return false;
     }
 
     temp = r.c_str();
     if (isdigit(temp[0])) {
         rF = stof(r);
+        if (rF < 0)
+            return false;
         a.r = rF;
     } else {
-        std::cout << "R" << std::endl;
         return false;
     }
 
