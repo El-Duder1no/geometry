@@ -1,5 +1,7 @@
 #include "circle.h"
 #include "geomCalc.h"
+#include "structFill.h"
+
 #include <gtest/gtest.h>
 
 TEST(perimeterTest, correctInput)
@@ -28,13 +30,26 @@ TEST(areaTest, correctInput)
 {
     Circle one;
 
-	one.r = 8.65124;
+    one.r = 8.65124;
     EXPECT_FLOAT_EQ(235.12228, Area(one));
 
-	one.r = 93.59;
+    one.r = 93.59;
     EXPECT_FLOAT_EQ(27516.6752, Area(one));
 
-	one.r = 14.55;
+    one.r = 14.55;
     EXPECT_FLOAT_EQ(665.0634, Area(one));
 }
 
+TEST(structFill, correctFill)
+{
+    Circle one;
+    std::string text = "circle(14.74 -70.25, 9)";
+
+    EXPECT_TRUE(structFill(one, text));
+
+	text = "circle(-68.145 52.008, 32)";
+    EXPECT_TRUE(structFill(one, text));
+
+	text = "circle(-51.32 -49.22, 158)";
+    EXPECT_TRUE(structFill(one, text));
+}
