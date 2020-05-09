@@ -15,8 +15,8 @@ THRDPARTY_FLG += -L $(GTEST_INCLUDE) -l gtest_main -l pthread
 
 all: $(EXE) $(TEST)
 
-$(EXE): $(DIR_SRC)/main.o $(DIR_SRC)/area.o $(DIR_SRC)/perimeter.o $(DIR_SRC)/circle.o $(DIR_SRC)/parse.o $(DIR_SRC)/structFill.o 
-	$(CC) $(CXXFLAGS) $(DIR_SRC)/main.o $(DIR_SRC)/area.o $(DIR_SRC)/perimeter.o $(DIR_SRC)/circle.o $(DIR_SRC)/parse.o $(DIR_SRC)/structFill.o  -o $(EXE)
+$(EXE): $(DIR_SRC)/main.o $(DIR_SRC)/area.o $(DIR_SRC)/perimeter.o $(DIR_SRC)/parse.o $(DIR_SRC)/structFill.o 
+	$(CC) $(CXXFLAGS) $(DIR_SRC)/main.o $(DIR_SRC)/area.o $(DIR_SRC)/perimeter.o $(DIR_SRC)/parse.o $(DIR_SRC)/structFill.o  -o $(EXE)
 
 $(DIR_SRC)/main.o: src/main.cpp
 	$(CC) $(CXXFLAGS) -c src/main.cpp -o $(DIR_SRC)/main.o
@@ -26,9 +26,6 @@ $(DIR_SRC)/area.o: src/area.cpp
 
 $(DIR_SRC)/perimeter.o: src/perimeter.cpp
 	$(CC) $(CXXFLAGS) -c src/perimeter.cpp -o $(DIR_SRC)/perimeter.o
-
-$(DIR_SRC)/circle.o: src/circle.cpp
-	$(CC) $(CXXFLAGS) -c src/circle.cpp -o $(DIR_SRC)/circle.o
 
 $(DIR_SRC)/parse.o: src/parse.cpp
 	$(CC) $(CXXFLAGS) -c src/parse.cpp -o $(DIR_SRC)/parse.o
