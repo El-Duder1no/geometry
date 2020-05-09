@@ -20,6 +20,21 @@ TEST(perimeterTest, incorrectInput)
 {
     Circle one;
 
-	one.r = -10;
+    one.r = -10;
     EXPECT_TRUE(Perimeter(one) < 0);
 }
+
+TEST(areaTest, correctInput)
+{
+    Circle one;
+
+	one.r = 8.65124;
+    EXPECT_FLOAT_EQ(235.12228, Area(one));
+
+	one.r = 93.59;
+    EXPECT_FLOAT_EQ(27516.6752, Area(one));
+
+	one.r = 14.55;
+    EXPECT_FLOAT_EQ(665.0634, Area(one));
+}
+
