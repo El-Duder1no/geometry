@@ -60,4 +60,7 @@ TEST(structFillTest, incorrectFill)
     std::string text = "triangle(1.5 1.5, 3)";
 
     EXPECT_FALSE(structFill(one, text));
+
+	text = "circle(56 39.5, -18)";
+    EXPECT_FALSE(structFill(one, text));
 }
