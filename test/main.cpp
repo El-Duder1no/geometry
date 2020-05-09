@@ -15,3 +15,11 @@ TEST(perimeterTest, correctInput)
     one.r = 0.005;
     EXPECT_FLOAT_EQ(0.031415, Perimeter(one));
 }
+
+TEST(perimeterTest, incorrectInput)
+{
+    Circle one;
+
+	one.r = -10;
+    EXPECT_TRUE(Perimeter(one) < 0);
+}
