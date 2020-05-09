@@ -34,8 +34,8 @@ $(DIR_SRC)/structFill.o: src/structFill.cpp
 	$(CC) $(CXXFLAGS) -c src/structFill.cpp -o $(DIR_SRC)/structFill.o
 
 
-$(TEST) : $(DIR_SRC)/area.o $(DIR_SRC)/perimeter.o $(DIR_SRC)/circle.o $(DIR_SRC)/structFill.o $(DIR_TEST)/main.o
-	$(CC) $(CXXFLAGS) $(THRDPARTY_FLG) $(DIR_SRC)/area.o $(DIR_SRC)/perimeter.o $(DIR_SRC)/circle.o $(DIR_SRC)/structFill.o $(DIR_TEST)/main.o -o $(TEST)
+$(TEST) : $(DIR_SRC)/area.o $(DIR_SRC)/perimeter.o $(DIR_SRC)/structFill.o $(DIR_TEST)/main.o
+	$(CC) $(CXXFLAGS) $(THRDPARTY_FLG) $(DIR_SRC)/area.o $(DIR_SRC)/perimeter.o $(DIR_SRC)/structFill.o $(DIR_TEST)/main.o -o $(TEST)
 
 $(DIR_T)/main.o : test/main.cpp
 	$(CC) $(FLAGS) -I $(GTEST_INCLUDE) -I src -c test/main.cpp -o $(DIR_T)/main.o
