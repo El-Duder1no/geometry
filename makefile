@@ -24,7 +24,7 @@ $(DIR_SRC)/main.o: src/main.cpp
 $(DIR_SRC)/area.o: src/area.cpp
 	$(CC) $(CXXFLAGS) -c src/area.cpp -o $(DIR_SRC)/area.o
 
-$(DIR_SRC)/build/perimeter.o: src/perimeter.cpp
+$(DIR_SRC)/perimeter.o: src/perimeter.cpp
 	$(CC) $(CXXFLAGS) -c src/perimeter.cpp -o $(DIR_SRC)/perimeter.o
 
 $(DIR_SRC)/circle.o: src/circle.cpp
