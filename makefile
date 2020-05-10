@@ -13,7 +13,7 @@ GTEST_INCLUDE = thirdparty/googletest/include
 GTEST_LIB = thirdparty/googletest/lib
 
 LD_FLAG = -L $(GTEST_LIB) -lgtest_main -lpthread
-CFLAG += -isystem $(GTEST_INCLUDE)
+CFLAGS += -isystem $(GTEST_INCLUDE)
 CXX += -g -Wall -Wextra -pthread -std=c++17
 
 all: $(EXE) $(TEST)
@@ -41,7 +41,7 @@ $(TEST) : $(DIR_SRC)/area.o $(DIR_SRC)/perimeter.o $(DIR_SRC)/structFill.o $(DIR
 	$(CXX) $(CXXFLAGS) $(LD_FLAG) $(DIR_SRC)/area.o $(DIR_SRC)/perimeter.o $(DIR_SRC)/structFill.o $(DIR_TEST)/main.o -o $(TEST)
 
 $(DIR_T)/main.o : test/main.cpp
-	$(CXX) $(СXXFLAGS) -I $(GTEST_INCLUDE) -I src -c test/main.cpp -o $(DIR_T)/main.o
+	$(CXX) $(СFLAGS) -I $(GTEST_INCLUDE) -I src -c test/main.cpp -o $(DIR_T)/main.o
 
 clean:
 	rm -rf $(DIR_SRC)/*.o 
