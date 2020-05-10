@@ -12,7 +12,7 @@ GTEST = thirdparty/googletest
 GTEST_INCLUDE = thirdparty/googletest/include
 GTEST_LIB = thirdparty/googletest/lib
 
-THRDPARTY_FLG += -L $(GTEST_LIB) -l gtest_main -l pthread
+THRDPARTY_FLG = -L $(GTEST_LIB) -l gtest_main -l pthread
 
 all: $(EXE) $(TEST)
 
@@ -39,7 +39,8 @@ $(TEST) : $(DIR_SRC)/area.o $(DIR_SRC)/perimeter.o $(DIR_SRC)/structFill.o $(DIR
 	$(CC) $(CXXFLAGS) $(THRDPARTY_FLG) $(DIR_SRC)/area.o $(DIR_SRC)/perimeter.o $(DIR_SRC)/structFill.o $(DIR_TEST)/main.o -o $(TEST)
 
 $(DIR_T)/main.o : test/main.cpp
-	$(CC) $(FLAGS) -I $(GTEST_INCLUDE) -I src -c test/main.cpp -o $(DIR_T)/main.o
+	$(CC) $(СXXFLAGS) -I $(GTEST_INCLUDE) -I src -c test/main.cpp -o $(DIR_T)/main.o
+
 clean:
 	rm -rf $(DIR_SRC)/*.o 
 	rm -rf $(DIR_TEST)/*.o 
