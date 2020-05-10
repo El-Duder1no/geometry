@@ -38,10 +38,10 @@ $(DIR_SRC)/structFill.o: src/structFill.cpp
 
 
 $(TEST) : $(DIR_SRC)/area.o $(DIR_SRC)/perimeter.o $(DIR_SRC)/structFill.o $(DIR_TEST)/main.o
-	$(CC) $(CXXFLAGS) $(LD_FLAG) $(DIR_SRC)/area.o $(DIR_SRC)/perimeter.o $(DIR_SRC)/structFill.o $(DIR_TEST)/main.o -o $(TEST)
+	$(CXX) $(CXXFLAGS) $(LD_FLAG) $(DIR_SRC)/area.o $(DIR_SRC)/perimeter.o $(DIR_SRC)/structFill.o $(DIR_TEST)/main.o -o $(TEST)
 
 $(DIR_T)/main.o : test/main.cpp
-	$(CC) $(СXXFLAGS) -I $(GTEST_INCLUDE) -I src -c test/main.cpp -o $(DIR_T)/main.o
+	$(CXX) $(СXXFLAGS) -I $(GTEST_INCLUDE) -I src -c test/main.cpp -o $(DIR_T)/main.o
 
 clean:
 	rm -rf $(DIR_SRC)/*.o 
