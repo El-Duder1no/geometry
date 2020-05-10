@@ -1,4 +1,5 @@
 .PHONY: clean all
+
 CC = g++
 CXXFLAGS = -Wall -Werror --std=c++17
 EXE = bin/geometry
@@ -9,9 +10,9 @@ DIR_TEST = build/test
 
 GTEST = thirdparty/googletest
 GTEST_INCLUDE = thirdparty/googletest/include
-GTEST_LIB = thirdparty/googletest/include
+GTEST_LIB = thirdparty/googletest/lib
 
-THRDPARTY_FLG += -L $(GTEST_INCLUDE) -l gtest_main -l pthread
+THRDPARTY_FLG += -L $(GTEST_LIB) -l gtest_main -l pthread
 
 all: $(EXE) $(TEST)
 
