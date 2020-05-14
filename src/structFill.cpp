@@ -13,29 +13,28 @@ bool structFill(Circle& a, std::string text)
     }
 
     temp = x.c_str();
-    if (isdigit(temp[0])) {
+    if (isdigit(temp[0]) || temp[0] == '-') {
         xF = stof(x);
         a.x = xF;
     } else {
-        std::cout << "X" << std::endl;
         return false;
     }
 
     temp = y.c_str();
-    if (isdigit(temp[0])) {
+    if (isdigit(temp[0]) || temp[0] == '-') {
         yF = stof(y);
         a.y = yF;
     } else {
-        std::cout << "Y" << std::endl;
         return false;
     }
 
     temp = r.c_str();
     if (isdigit(temp[0])) {
         rF = stof(r);
+        if (rF < 0)
+            return false;
         a.r = rF;
     } else {
-        std::cout << "R" << std::endl;
         return false;
     }
 

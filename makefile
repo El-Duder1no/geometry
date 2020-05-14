@@ -1,30 +1,50 @@
 .PHONY: clean all
+
 CC = g++
-CFLAGS = -Wall -Werror
+CFLAGS = -Wall -Werror --std=c++11
+
 EXE = bin/geometry
+TEST = bin/test
 
-all: $(EXE)
+DIR_SRC = build/src
+DIR_TEST = build/test
 
-$(EXE): build/main.o build/area.o build/perimeter.o build/circle.o build/parse.o build/structFill.o 
-	$(CC) $(CFLAGS) build/main.o build/area.o build/perimeter.o build/circle.o build/parse.o build/structFill.o  -o $(EXE)
+GTEST = thirdparty/googletest
+GTEST_LIB = thirdparty/googletest/lib
 
-build/main.o: src/main.cpp
-	$(CC) $(CFLAGS) -c --std=c++17 src/main.cpp -o build/main.o
+LD_FLAG = -L $(GTEST_LIB) -l gtest_main -l pthread
+CPPFLAGS += -isystem $(GTEST)/include
+CXXFLAGS += -g -Wall -Werror -Wextra -pthread -std=c++11
 
-build/area.o: src/area.cpp
-	$(CC) $(CFLAGS) -c --std=c++17 src/area.cpp -o build/area.o
+all : $(TEST) $(EXE)
 
-build/perimeter.o: src/perimeter.cpp
-	$(CC) $(CFLAGS) -c --std=c++17 src/perimeter.cpp -o build/perimeter.o
+$(EXE): $(DIR_SRC)/main.o $(DIR_SRC)/area.o $(DIR_SRC)/perimeter.o $(DIR_SRC)/parse.o $(DIR_SRC)/structFill.o
+	$(CC) $(CFLAGS) $(DIR_SRC)/main.o $(DIR_SRC)/area.o $(DIR_SRC)/perimeter.o $(DIR_SRC)/parse.o $(DIR_SRC)/structFill.o -o $(EXE)
 
-build/circle.o: src/circle.cpp
-	$(CC) $(CFLAGS) -c --std=c++17 src/circle.cpp -o build/circle.o
+$(TEST) : $(DIR_TEST)/main.o $(DIR_SRC)/area.o $(DIR_SRC)/perimeter.o $(DIR_SRC)/structFill.o $(DIR_SRC)/parse.o
+	$(CC) $(CPPFLAGS) $(CXXFLAGS) $(LD_FLAG) $(DIR_TEST)/main.o $(DIR_SRC)/area.o $(DIR_SRC)/perimeter.o $(DIR_SRC)/structFill.o $(DIR_SRC)/parse.o -o $(TEST)
 
-build/parse.o: src/parse.cpp
-	$(CC) $(CFLAGS) -c --std=c++17 src/parse.cpp -o build/parse.o
 
-build/structFill.o: src/structFill.cpp
-	$(CC) $(CFLAGS) -c --std=c++17 src/structFill.cpp -o build/structFill.o
+$(DIR_SRC)/main.o: src/main.cpp
+	$(CC) $(CFLAGS) -c src/main.cpp -o $(DIR_SRC)/main.o
+
+$(DIR_SRC)/area.o: src/area.cpp
+	$(CC) $(CFLAGS) -c src/area.cpp -o $(DIR_SRC)/area.o
+
+$(DIR_SRC)/perimeter.o: src/perimeter.cpp
+	$(CC) $(CFLAGS) -c src/perimeter.cpp -o $(DIR_SRC)/perimeter.o
+
+$(DIR_SRC)/parse.o: src/parse.cpp
+	$(CC) $(CFLAGS) -c src/parse.cpp -o $(DIR_SRC)/parse.o
+
+$(DIR_SRC)/structFill.o: src/structFill.cpp
+	$(CC) $(CFLAGS) -c src/structFill.cpp -o $(DIR_SRC)/structFill.o
+
+$(DIR_TEST)/main.o : test/main.cpp
+	$(CC) $(CPPFLAGS) $(CXXFLAGS) -I $(GTEST)/include -I src -c test/main.cpp -o $(DIR_TEST)/main.o
+
 
 clean:
-	rm -rf build/*.o bin/*.exe
+	rm -rf $(DIR_SRC)/*.o 
+	rm -rf $(DIR_TEST)/*.o 
+	rm bin/*.exe
