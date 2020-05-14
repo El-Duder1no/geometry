@@ -64,9 +64,3 @@ TEST(structFillTest, incorrectFill)
     text = "circle(56 39.5, -18)";
     EXPECT_FALSE(structFill(one, text));
 }
-text = "circle(-68.145 52.008, 32)";
-EXPECT_TRUE(structFill(one, text));
-
-text = "circle(-51.32 -49.22, 158)";
-EXPECT_TRUE(structFill(one, text));
-}
