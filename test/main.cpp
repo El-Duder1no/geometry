@@ -65,12 +65,12 @@ TEST(intersectionTest, intersect)
     one.y = 5;
     one.r = 10;
 
-	Circle two;
+    Circle two;
     two.x = 0;
     two.y = 0;
     two.r = 10;
 
-	EXPECT_TRUE(Intersection(one, two));
+    EXPECT_TRUE(Intersection(one, two));
 }
 
 TEST(intersectionTest, not_intersect)
