@@ -1,5 +1,6 @@
 #include "circle.h"
 #include "geomCalc.h"
+#include "intersection.h"
 #include "parse.h"
 #include "structFill.h"
 
@@ -11,27 +12,45 @@ using namespace std;
 
 int main()
 {
-    Circle one;
-    string text;
+    Circle one, two;
+    string text, text1;
 
-    cout << "Input format: circle(x y, r)" << endl;
-    cout << "Enter the figure coordinates:" << endl << endl;
+    cout << "Input format: circle(x y, r)\n";
 
+    cout << "\nEnter the coordinates of the first circle:  ";
     getline(std::cin, text);
+    cout << "Enter the coordinates of the second circle: ";
+    getline(std::cin, text1);
 
-    if (!structFill(one, text)) {
-        cout << "The input is invalid!" << endl;
+    bool first = structFill(one, text);
+    bool second = structFill(two, text1);
+    bool intersec = Intersection(one, two);
 
-        cout << endl << "Press any key to exit" << endl;
+    if (first == false or second == false) {
+        cout << "\nThe input data is invalid!";
+
+        cout << "\nPress any key to exit\n";
         cin.get();
         return 0;
-    } else {
-        cout << endl << "1." << text << endl;
-        cout << "  Area: " << Area(one) << "\n  Perimeter: " << Perimeter(one)
-             << endl;
     }
 
-    cout << endl << "Press any key to exit" << endl;
+    cout << "\n1." << text;
+    cout << "\n  Area: " << Area(one) << "\n  Perimeter: " << Perimeter(one);
+    if (intersec == true) {
+        cout << "\nIntersects:\n  2. circle\n";
+    } else {
+        cout << "\nThe figure doesn't intersect anything\n";
+    }
+
+    cout << "\n2." << text1;
+    cout << "\n  Area: " << Area(two) << "\n  Perimeter: " << Perimeter(two);
+    if (intersec == true) {
+        cout << "\nIntersects:\n  1. circle\n";
+    } else {
+        cout << "\nThe figure doesn't intersect anything\n";
+    }
+
+    cout << endl << "Press any key to exit\n";
     cin.get();
     return 0;
 }
