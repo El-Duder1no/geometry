@@ -1,5 +1,6 @@
 #include "circle.h"
 #include "geomCalc.h"
+#include "intersection.h"
 #include "structFill.h"
 
 #include <gtest/gtest.h>
@@ -16,14 +17,6 @@ TEST(perimeterTest, correctInput)
 
     one.r = 0.005;
     EXPECT_FLOAT_EQ(0.031415, Perimeter(one));
-}
-
-TEST(perimeterTest, incorrectInput)
-{
-    Circle one;
-
-    one.r = -10;
-    EXPECT_TRUE(Perimeter(one) < 0);
 }
 
 TEST(areaTest, correctInput)
@@ -63,4 +56,34 @@ TEST(structFillTest, incorrectFill)
 
     text = "circle(56 39.5, -18)";
     EXPECT_FALSE(structFill(one, text));
+}
+
+TEST(intersectionTest, intersect)
+{
+    Circle one;
+    one.x = 5;
+    one.y = 5;
+    one.r = 10;
+
+    Circle two;
+    two.x = 0;
+    two.y = 0;
+    two.r = 10;
+
+    EXPECT_TRUE(Intersection(one, two));
+}
+
+TEST(intersectionTest, not_intersect)
+{
+    Circle one;
+    one.x = 100;
+    one.y = 100;
+    one.r = 10;
+
+    Circle two;
+    two.x = -100;
+    two.y = -100;
+    two.r = 10;
+
+    EXPECT_FALSE(Intersection(one, two));
 }
