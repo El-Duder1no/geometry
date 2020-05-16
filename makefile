@@ -18,11 +18,11 @@ CXXFLAGS += -g -Wall -Werror -Wextra -pthread -std=c++11
 
 all : $(TEST) $(EXE)
 
-$(EXE): $(DIR_SRC)/main.o $(DIR_SRC)/area.o $(DIR_SRC)/perimeter.o $(DIR_SRC)/parse.o $(DIR_SRC)/structFill.o
-	$(CC) $(CFLAGS) $(DIR_SRC)/main.o $(DIR_SRC)/area.o $(DIR_SRC)/perimeter.o $(DIR_SRC)/parse.o $(DIR_SRC)/structFill.o -o $(EXE)
+$(EXE): $(DIR_SRC)/main.o $(DIR_SRC)/area.o $(DIR_SRC)/perimeter.o $(DIR_SRC)/parse.o $(DIR_SRC)/structFill.o $(DIR_SRC)/intersection.o
+	$(CC) $(CFLAGS) $(DIR_SRC)/main.o $(DIR_SRC)/area.o $(DIR_SRC)/perimeter.o $(DIR_SRC)/parse.o $(DIR_SRC)/structFill.o $(DIR_SRC)/intersection.o -o $(EXE)
 
-$(TEST) : $(DIR_TEST)/main.o $(DIR_SRC)/area.o $(DIR_SRC)/perimeter.o $(DIR_SRC)/structFill.o $(DIR_SRC)/parse.o
-	$(CC) $(CPPFLAGS) $(CXXFLAGS) $(LD_FLAG) $(DIR_TEST)/main.o $(DIR_SRC)/area.o $(DIR_SRC)/perimeter.o $(DIR_SRC)/structFill.o $(DIR_SRC)/parse.o -o $(TEST)
+$(TEST) : $(DIR_TEST)/main.o $(DIR_SRC)/area.o $(DIR_SRC)/perimeter.o $(DIR_SRC)/structFill.o $(DIR_SRC)/parse.o $(DIR_SRC)/intersection.o
+	$(CC) $(CPPFLAGS) $(CXXFLAGS) $(LD_FLAG) $(DIR_TEST)/main.o $(DIR_SRC)/area.o $(DIR_SRC)/perimeter.o $(DIR_SRC)/structFill.o $(DIR_SRC)/parse.o $(DIR_SRC)/intersection.o -o $(TEST)
 
 
 $(DIR_SRC)/main.o: src/main.cpp
@@ -39,6 +39,9 @@ $(DIR_SRC)/parse.o: src/parse.cpp
 
 $(DIR_SRC)/structFill.o: src/structFill.cpp
 	$(CC) $(CFLAGS) -c src/structFill.cpp -o $(DIR_SRC)/structFill.o
+
+$(DIR_SRC)/intersection.o: src/intersection.cpp
+	$(CC) $(CFLAGS) -c src/intersection.cpp -o $(DIR_SRC)/intersection.o
 
 $(DIR_TEST)/main.o : test/main.cpp
 	$(CC) $(CPPFLAGS) $(CXXFLAGS) -I $(GTEST)/include -I src -c test/main.cpp -o $(DIR_TEST)/main.o
